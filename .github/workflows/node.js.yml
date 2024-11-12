@@ -38,14 +38,8 @@ jobs:
       - name: npx bddgen
         run: npx bddgen
         
-      # Run Playwright tests
-      - name: Run Playwright tests
-        run: TESTOMATIO=tstmt_RVw6cT0G_H0L2JyheAzjhUQDbAxWaN4mag1730906837 npx playwright test
-
-      # Upload test report (optional, for saving artifacts)
-      - name: Upload test results
-        if: failure()
-        uses: actions/upload-artifact@v3
-        with:
-          name: playwright-report
-          path: playwright-report/
+      - name: Run tests
+        run: npx playwright test --grep "${{ github.event.inputs.grep }}"
+        env:
+          TESTOMATIO: '${{ secrets.TESTOMATIO }}'
+          TESTOMATIO_RUN: '${{ github.event.inputs.run }}'
