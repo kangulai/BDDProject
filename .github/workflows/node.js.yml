@@ -1,0 +1,51 @@
+name: Playwright CI on macOS
+
+# Trigger the workflow on push and pull request events
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# Define the job for running Playwright tests on macOS
+jobs:
+  test:
+    runs-on: macos-latest
+
+    # Define the steps to set up and run the tests
+    steps:
+      # Check out the repository
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      # Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Install Playwright browsers
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      # Install Playwright browsers
+      - name: npx bddgen
+        run: npx bddgen
+        
+      # Run Playwright tests
+      - name: Run Playwright tests
+        run: TESTOMATIO=tstmt_RVw6cT0G_H0L2JyheAzjhUQDbAxWaN4mag1730906837 npx playwright test
+
+      # Upload test report (optional, for saving artifacts)
+      - name: Upload test results
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: playwright-report
+          path: playwright-report/
