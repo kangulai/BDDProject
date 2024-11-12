@@ -8,6 +8,16 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      grep:
+        description: 'tests to grep '
+        required: false
+        default: ''
+      run:
+        required: false
+      testomatio:
+        required: false
 
 # Define the job for running Playwright tests on macOS
 jobs:
@@ -40,12 +50,4 @@ jobs:
         
       # Run Playwright tests
       - name: Run Playwright tests
-        run: TESTOMATIO=tstmt_RVw6cT0G_H0L2JyheAzjhUQDbAxWaN4mag1730906837 npx playwright test
-
-      # Upload test report (optional, for saving artifacts)
-      - name: Upload test results
-        if: failure()
-        uses: actions/upload-artifact@v3
-        with:
-          name: playwright-report
-          path: playwright-report/
+        run: TESTOMATIO=tstmt_RVw6cT0G_H0L2JyheAzjhUQDbAxWaN4mag1730906837 npx playwright test --grep "${github.event.inputs.grep}"
