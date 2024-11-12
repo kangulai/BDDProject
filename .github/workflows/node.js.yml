@@ -50,4 +50,4 @@ jobs:
         
       # Run Playwright tests
       - name: Run Playwright tests
-        run: TESTOMATIO=tstmt_RVw6cT0G_H0L2JyheAzjhUQDbAxWaN4mag1730906837 npx playwright test --grep "${github.event.inputs.grep}"
+        run: TESTOMATIO=tstmt_RVw6cT0G_H0L2JyheAzjhUQDbAxWaN4mag1730906837 npx playwright test
