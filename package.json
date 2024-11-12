@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.0.1",
+    "@testomatio/reporter": "^1.5.3",
+    "i": "^0.3.7",
+    "npm": "^10.9.0",
+    "playwright-bdd": "^7.5.0"
+  }
+}
