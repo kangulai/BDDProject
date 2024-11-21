@@ -44,10 +44,10 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      # Install Playwright browsers
+      # Gen BDD steps
       - name: npx bddgen
         run: npx bddgen
         
       # Run Playwright tests
       - name: Run Playwright tests
-        run: TESTOMATIO=tstmt_RVw6cT0G_H0L2JyheAzjhUQDbAxWaN4mag1730906837 npx playwright test
+        run: TESTOMATIO=tstmt_xIsv5lZjVgOY8F-6SNu5CWr-csFz6J1Oxw1732210878 npx playwright test
