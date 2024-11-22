@@ -50,4 +50,4 @@ jobs:
         
       # Run Playwright tests
       - name: Run Playwright tests
-        run: TESTOMATIO=tstmt_xIsv5lZjVgOY8F-6SNu5CWr-csFz6J1Oxw1732210878 npx playwright test
+        run: TESTOMATIO=tstmt_bCZItO160vfGeZrBjS0cQnkkmnpZqU0ZGg1732245986 npx playwright test
